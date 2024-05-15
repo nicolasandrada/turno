@@ -37,6 +37,6 @@
 
     <a href="eliminar.php">Eliminar turno</a> 
     <br>
-    <a href="">Modificar turno</a>
+    <a href="modificar.php">Modificar turno</a>
 </body>
 </html>
