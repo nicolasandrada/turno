@@ -1,8 +1,8 @@
 //buscando el obj boton 
-let btn = document.getElementById('btn_ver')
+let i_fecha = document.getElementById('fecha')
 
 //agrego un evento y le digo que funcion ejecuta
-btn.addEventListener("click", buscar )
+i_fecha.addEventListener("change", buscar)
 
 //declaro funcion
 function buscar(){
@@ -18,10 +18,11 @@ function buscar(){
     })
     //como va a estar codificada la info
     .then(function(data){
-        return data.json();
+        return data.text();
     })
     //Respuesta del archivo consultado
     .then(respuesta => { 
-        console.log(respuesta);
+        //console.log(respuesta);
+        document.getElementById('hora').innerHTML = respuesta
     })
 }

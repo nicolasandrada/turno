@@ -8,7 +8,7 @@
 <body>
     <h1>Reserva tu turno</h1>
 
-    <form action="" method="post">
+    <form action="guardar.php" method="post">
         <label for="nombre"> Nombre</label>
         <input type="text" name="nombre">
 
@@ -17,51 +17,11 @@
 
         <label for="fecha"> Fecha</label>
         <input type="date" name="fecha" id='fecha'>
-        <input type="button" value="Verificar" id="btn_ver">
+        
 
         <label for="hora">Hora</label>
         
-        <?php
-        include "conexion.php";
-
-
-        if(isset($_REQUEST["fecha"])){
-            $fecha = $_REQUEST["fecha"];
-
-            $SQL = "SELECT hora FROM Turno 
-                    WHERE fecha = '$fecha' ";
-
-            $res = $con->query($SQL);
-
-
-            while( $fila = $res->fetch_assoc() ){
-                //echo "<p>$fila[hora]</p>";
-                $a[] = $fila['hora'];
-            }
-            //var_dump($a);
-        }
-        
-        echo "<select name='hora'>";
-        for($i = 9; $i <= 20; $i++) {
-            $tiempo = "$i:00:00";
-            $ocupado = false; // Variable para controlar si el tiempo está ocupado
-        
-            foreach($a as $x) {
-                if($tiempo == $x) {
-                    echo "<option>Esta ocupado</option>";
-                    $ocupado = true;
-                    break; // Salir del bucle una vez que se encuentra que el tiempo está ocupado
-                }
-            }
-        
-            if(!$ocupado) {
-                echo "<option>$i:00</option>";
-            }
-        }
-        
-        ?>        
-        </select>
-        
+        <select name="hora" id="hora"></select>
         
 
         <label for="contacto">Contacto</label>
