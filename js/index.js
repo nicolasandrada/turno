@@ -9,25 +9,19 @@ function buscar(){
     let fecha = document.getElementById('fecha').value
     console.log(fecha)
 
-    fetch('verificar_horario.php', {
+    //Consulta asincronica
+    fetch('ajax/verificar_horario.php', {
         method: 'POST',
-        body: data2 
+        body: JSON.stringify({
+            'f':fecha
+        }) 
     })
-
-
-
-
-
-
-
-
+    //como va a estar codificada la info
     .then(function(data){
-
         return data.json();
     })
-    .then(myJson => { 
-
-        console.log(myJson);
-
-    });
+    //Respuesta del archivo consultado
+    .then(respuesta => { 
+        console.log(respuesta);
+    })
 }
