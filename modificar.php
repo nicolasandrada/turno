@@ -37,6 +37,7 @@
             //->fetch_assoc() = agarrar un registro y transformarlo en un arreglo
             $registro = $res->fetch_assoc();
 
+            //Crea un formulario con los datos del turno ya cargados
             echo "
                 <form>
                     Turno <hr> <br> 
@@ -71,12 +72,15 @@
 
         $id = $_REQUEST["id"];
         $fecha = $_REQUEST["fecha"];
+        $hora = $_REQUEST["hora"];
+        $nombre = $_REQUEST["nombre"];
+        $apellido = $_REQUEST["apellido"];
 
         $SQL = "UPDATE Turno 
-                SET nombre='nico', 
-                    apellido='andrada', 
+                SET nombre='$nombre', 
+                    apellido='$apellido', 
                     fecha='$fecha',
-                    hora='16:00:00' 
+                    hora='$hora' 
                     WHERE id_turno = $id";
 
         $con->query( $SQL );

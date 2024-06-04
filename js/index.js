@@ -13,13 +13,15 @@ function buscar(){
     fetch('ajax/verificar_horario.php', {
         method: 'POST',
         body: JSON.stringify({
-            'f':fecha
+            'f':fecha  //pasa la fecha y lo transforna en un JSON
         }) 
     })
+
     //como va a estar codificada la info
     .then(function(data){
         return data.text();
     })
+
     //Respuesta del archivo consultado
     .then(respuesta => { 
         //console.log(respuesta);
