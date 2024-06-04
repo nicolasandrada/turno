@@ -76,6 +76,7 @@
         $nombre = $_REQUEST["nombre"];
         $apellido = $_REQUEST["apellido"];
 
+        //modifica el turno cuyo ID coincida con el de turno a modificar
         $SQL = "UPDATE Turno 
                 SET nombre='$nombre', 
                     apellido='$apellido', 
@@ -85,6 +86,7 @@
 
         $con->query( $SQL );
 
+        //redirije al formulario
         header('location: formulario.php');
     }
     ?>
